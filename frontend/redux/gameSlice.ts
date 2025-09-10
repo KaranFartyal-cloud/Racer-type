@@ -4,6 +4,10 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 interface Player {
   socketId: string;
   nickname: string;
+  isPartyLeader: boolean;
+  _id: string;
+  currentWordIndex: number ;
+  WPM: number;
 }
 
 interface Game {
@@ -11,6 +15,8 @@ interface Game {
   players: Player[];
   isOpen: boolean;
   words: string[];
+  isOver: boolean;
+  startTime: number;
 }
 
 const initialState: Game = {
@@ -18,6 +24,8 @@ const initialState: Game = {
   players: [],
   isOpen: false,
   words: [],
+  isOver: false,
+  startTime: -1,
 };
 
 const gameSlice = createSlice({

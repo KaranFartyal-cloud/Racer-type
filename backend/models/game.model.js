@@ -5,7 +5,7 @@ const playerSchema = mongoose.Schema({
   isPartyLeader: { type: Boolean, default: false },
   socketId: { type: String },
   nickname: { type: String },
-  WPM: { type: Number },
+  WPM: { type: Number, default: -1 },
 });
 
 const gameSchema = mongoose.Schema({

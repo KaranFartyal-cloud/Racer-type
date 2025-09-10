@@ -6,33 +6,36 @@ import JoinGame from "./components/JoinGame";
 import Game from "./components/Game";
 import { useEffect, useState } from "react";
 import { socket } from "./components/socket";
+import { useAppDispatch, useAppSelector } from "../hooks/hooks.ts";
+import { setGame } from "../redux/gameSlice.ts";
 
 function App() {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const gameState = useAppSelector((store) => store.game);
 
   interface Player {
     socketId: string;
-    isPartyLeader?: boolean;
     nickname: string;
+    isPartyLeader: boolean;
+    _id: string;
+    currentWordIndex: number;
+    WPM: number;
   }
 
   interface Game {
     _id: string;
-    words: string[];
     players: Player[];
     isOpen: boolean;
+    words: string[];
+    isOver: boolean;
+    startTime: number;
   }
-
-  const [gameState, setGameState] = useState<Game>({
-    _id: "",
-    words: [],
-    players: [],
-    isOpen: false,
-  });
 
   useEffect(() => {
     const handleUpdateGame = (game: Game) => {
-      setGameState(game);
+      console.log("update-game triggered");
+      dispatch(setGame(game));
     };
 
     socket.on("update-game", handleUpdateGame);
