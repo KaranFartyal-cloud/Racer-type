@@ -3,6 +3,7 @@ import CountDown from "./CountDown.tsx";
 import DisplayWords from "./DisplayWords.tsx";
 import PlayerProgress from "./PlayerProgress.tsx";
 import LeaderBoard from "./LeaderBoard.tsx";
+import CopyRoomID from "./CopyRoomID.tsx";
 
 const Game = () => {
   return (
@@ -12,6 +13,7 @@ const Game = () => {
         <PlayerProgress />
         <CountDown />
         <StartBtn />
+        <CopyRoomID />
         <LeaderBoard />
       </div>
     </>

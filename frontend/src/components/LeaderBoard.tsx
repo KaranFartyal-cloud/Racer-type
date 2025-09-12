@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useAppSelector } from "../../hooks/hooks.ts";
 import {
   Table,
@@ -34,7 +33,7 @@ const getScoreBoard = (players: Player[]) => {
 };
 
 const LeaderBoard = () => {
-  const gameState = useAppSelector((store) => store.game);
+  const gameState: Game = useAppSelector((store) => store.game);
   const scoreBoard = getScoreBoard(gameState.players);
 
   if (scoreBoard.length === 0) {
@@ -45,7 +44,7 @@ const LeaderBoard = () => {
     <div className="flex justify-center">
       <div className="mt-7 flex ">
         <Table className="w-[800px]">
-          {/* <TableCaption>Racing Type LeaderBoard</TableCaption> */}
+          <TableCaption>Racing Type LeaderBoard</TableCaption>
           <TableHeader>
             <TableRow>
               <TableHead className="text-center">#</TableHead>

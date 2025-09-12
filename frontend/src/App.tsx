@@ -4,7 +4,7 @@ import Home from "./components/Home";
 import CreateGame from "./components/CreateGame";
 import JoinGame from "./components/JoinGame";
 import Game from "./components/Game";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { socket } from "./components/socket";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks.ts";
 import { setGame } from "../redux/gameSlice.ts";
